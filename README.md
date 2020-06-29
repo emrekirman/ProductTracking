@@ -7,6 +7,7 @@
 <li>Angular.js</li>
 <li>Sheet.js</li>
 <li>Sqlite</li>
+<li>Knex.js</li>
 <li>Boostrap css framework</li>
 <li>Angular material design</li>
 </ul>
