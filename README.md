@@ -3,6 +3,7 @@
 <h3>Used technologies</h3>
 
 <ul>
+<li>Node.js</li>
 <li>Electron</li>
 <li>Angular.js</li>
 <li>Sheet.js</li>
