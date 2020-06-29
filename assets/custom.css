@@ -1,0 +1,55 @@
+body{
+    font-size: 12px!important;
+}
+thead{
+    font-weight: bold;
+}
+
+.customInput{
+    height: 25px!important;
+}
+
+.ekleInput{
+    height: 34px!important;
+    margin-top: 2px!important;
+    font-size: 14px!important;
+    margin-bottom: 1px;
+    padding: 5px!important;
+}
+
+.ekleButton{
+    height: 32px!important;
+}
+
+.islemButton{
+    width: 80px!important;
+}
+
+.duzenleText{
+    margin-bottom: -8px;
+}
+
+.ekleForm{
+    margin-right: -18px!important;
+}
+
+.duzenleSil{
+    width: 27px!important;
+    height: 27px!important;
+}
+
+.anaListeDuzenle a{
+    text-decoration: none;
+    color:black;
+    font-weight: bold;
+}
+
+.anaListeDuzenle a:hover{
+    text-decoration: none;
+    color:red;
+    transition: 500ms;
+}
+
+.duzenleButonlar{
+    width: 165px!important;
+}

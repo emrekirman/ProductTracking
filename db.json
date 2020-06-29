@@ -1,0 +1,132 @@
+{
+  "users": [
+    {
+      "siraNo": 1,
+      "seriNo": "asdsad",
+      "cihazTipi": "asdasd",
+      "imeiNo": "jhtmhjm",
+      "readerSeriNo": "kyıö",
+      "ipNo": "asdasdas",
+      "framRapor": "VAR",
+      "arizaDurum": "Açılmıyor",
+      "onayDurum": "HAYIR",
+      "tarih": "2020-02-10T10:11:47.954Z"
+    },
+    {
+      "siraNo": 3,
+      "seriNo": "cvl-f0",
+      "cihazTipi": "asdasd",
+      "imeiNo": "asdasd",
+      "readerSeriNo": "asdasdas",
+      "ipNo": "dasdasd",
+      "framRapor": "VAR",
+      "arizaDurum": "asdasd",
+      "onayDurum": "HAYIR",
+      "tarih": "2020-02-11T12:54:54.203Z"
+    },
+    {
+      "siraNo": 4,
+      "seriNo": "123123",
+      "cihazTipi": "123123",
+      "imeiNo": "123123",
+      "readerSeriNo": "12312",
+      "ipNo": "3123",
+      "framRapor": "VAR",
+      "arizaDurum": "123123123",
+      "onayDurum": "HAYIR",
+      "birim": "Avrupa",
+      "tarih": "2020-02-11T21:36:49.482Z"
+    },
+    {
+      "siraNo": 5,
+      "seriNo": "asdasd",
+      "cihazTipi": "asdasd",
+      "imeiNo": "asdasd",
+      "readerSeriNo": "asdasd",
+      "ipNo": "asdasd",
+      "framRapor": "VAR",
+      "arizaDurum": "asdasd",
+      "onayDurum": "HAYIR",
+      "birim": "Avrupa",
+      "tarih": "2020-02-11T22:37:30.234Z"
+    },
+    {
+      "siraNo": 6,
+      "seriNo": "asdasd",
+      "cihazTipi": "asdasd",
+      "imeiNo": "asdasd",
+      "readerSeriNo": "asdasd",
+      "ipNo": "asdasd",
+      "framRapor": "VAR",
+      "arizaDurum": "asdasd",
+      "onayDurum": "HAYIR",
+      "birim": "Avrupa",
+      "tarih": "2020-02-11T22:37:30.234Z"
+    },
+    {
+      "siraNo": 7,
+      "seriNo": "asdasd",
+      "cihazTipi": "asdasd",
+      "imeiNo": "asdasd",
+      "readerSeriNo": "asdasd",
+      "ipNo": "asdasd",
+      "framRapor": "VAR",
+      "arizaDurum": "asdasd",
+      "onayDurum": "HAYIR",
+      "birim": "Avrupa",
+      "tarih": "2020-02-11T22:37:30.234Z"
+    },
+    {
+      "siraNo": 8,
+      "seriNo": "asdasd",
+      "cihazTipi": "asdasd",
+      "imeiNo": "asdasd",
+      "readerSeriNo": "asdasd",
+      "ipNo": "asdasd",
+      "framRapor": "VAR",
+      "arizaDurum": "asdasd",
+      "onayDurum": "HAYIR",
+      "birim": "Avrupa",
+      "tarih": "2020-02-11T22:37:30.234Z"
+    },
+    {
+      "siraNo": 9,
+      "seriNo": "asdasd",
+      "cihazTipi": "asdasd",
+      "imeiNo": "asdasd",
+      "readerSeriNo": "asdasd",
+      "ipNo": "asdasd",
+      "framRapor": "VAR",
+      "arizaDurum": "asdasd",
+      "onayDurum": "HAYIR",
+      "birim": "Avrupa",
+      "tarih": "2020-02-11T22:37:30.234Z"
+    },
+    {
+      "siraNo": 10,
+      "seriNo": "asdasd",
+      "cihazTipi": "asdasd",
+      "imeiNo": "asdasd",
+      "readerSeriNo": "asdasd",
+      "ipNo": "asdasd",
+      "framRapor": "VAR",
+      "arizaDurum": "asdasd",
+      "onayDurum": "HAYIR",
+      "birim": "Avrupa",
+      "tarih": "2020-02-11T22:37:30.234Z"
+    },
+    {
+      "siraNo": 11,
+      "seriNo": "asdasd",
+      "cihazTipi": "asdasd",
+      "imeiNo": "asdasd",
+      "readerSeriNo": "asdasd",
+      "ipNo": "asdasd",
+      "framRapor": "VAR",
+      "arizaDurum": "asdasd",
+      "onayDurum": "HAYIR",
+      "birim": "Avrupa",
+      "tarih": "2020-02-11T22:37:30.234Z"
+    }
+  ]
+}

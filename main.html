@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rapor Takip</title>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+    <script src="./assets/jquery-3.2.1.slim.min.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./assets/angular-material.min.css" />
+    <script src="./assets/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="./assets/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="./assets/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="./assets/custom.css" />
+    <link rel="stylesheet" href="./assets/bootstrap.min.css" />
+    <link href="./assets/loading/loading.css" rel="stylesheet">
+
+
+</head>
+
+<body id="bodyA">
+    <div ng-app="app" ng-controller="ctrl" ng-init="getir(false)">
+        <md-tabs md-dynamic-height>
+            <md-tab label="KAYIT LİSTESİ">
+                <div class="row p-2" ng-show="!show">
+                    <div class="col-md-12">
+                        <table class="table table-bordered table-striped table-hover table-sm">
+                            <thead>
+                                <tr>
+                                    <td colspan="10" class="text-right p-2">
+                                        <b>Toplam Kayıt: {{data.length}}</b>
+                                    </td>
+                                    <td class="islemButton" align="center">
+                                        <button class="btn btn-success btn-sm" style="margin-top: 2px;"
+                                            ng-click="ExcelDokumAl()"><i class="fas fa-file-excel"></i> .XLS</button>
+                                    </td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td class="text-center">#</td>
+                                    <td>
+                                        CİHAZ S/N<br>
+                                    </td>
+                                    <td>
+                                        CİHAZ TİPİ<br>
+                                    </td>
+                                    <td>
+                                        READER S/N<br>
+                                    </td>
+                                    <td>
+                                        IP NO<br>
+                                    </td>
+                                    <td>
+                                        FRAM<br>
+                                    </td>
+                                    <td>
+                                        ARIZA<br>
+                                    </td>
+                                    <td>
+                                        ONAY<br>
+                                    </td>
+                                    <td>
+                                        BİRİM<br>
+                                    </td>
+                                    <td>
+                                        TARİH<br>
+                                    </td>
+                                    <td>
+                                        #
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <input type="text" ng-change="dugmeKontrol($event,'seriNo')"
+                                            class="form-control border form-control-sm bg-white ekleInput"
+                                            ng-model="araSeriNo" />
+                                    </td>
+                                    <td>
+                                        <input type="text" ng-change="dugmeKontrol($event,'cihazTipi')"
+                                            class="form-control border form-control-sm bg-white ekleInput"
+                                            ng-model="araCihazTipi" />
+                                    </td>
+                                    <td>
+                                        <input type="text" ng-change="dugmeKontrol($event,'readerSeriNo')"
+                                            class="form-control border form-control-sm bg-white ekleInput"
+                                            ng-model="araReaderSeriNo" />
+                                    </td>
+                                    <td>
+                                        <input type="text" ng-change="dugmeKontrol($event,'ipNo')"
+                                            class="form-control border form-control-sm bg-white ekleInput"
+                                            ng-model="araIpNo" />
+                                    </td>
+                                    <td>
+                                        <input type="text" ng-change="dugmeKontrol($event,'framRapor')"
+                                            class="form-control border form-control-sm bg-white ekleInput"
+                                            ng-model="araFramRapor" />
+                                    </td>
+                                    <td>
+                                        <input type="text" ng-change="dugmeKontrol($event,'arizaDurum')"
+                                            class="form-control border form-control-sm bg-white ekleInput"
+                                            ng-model="araArizaDurum" />
+                                    </td>
+                                    <td>
+                                        <input type="text" ng-change="dugmeKontrol($event,'onayDurum')"
+                                            class="form-control border form-control-sm bg-white ekleInput"
+                                            ng-model="araOnayDurum" />
+                                    </td>
+                                    <td style="width:11%;">
+                                        <select class="form-control border form-control-sm bg-white ekleInput"
+                                            ng-model="birimAra">
+                                            <option value="">Tümü</option>
+                                            <option value="Avrupa">Avrupa</option>
+                                            <option value="Anadolu">Anadolu</option>
+                                        </select>
+                                    </td>
+                                    <td style="width:11%;">
+                                        <select class="form-control border form-control-sm bg-white ekleInput align-top"
+                                            ng-model="tarihAra">
+                                            <option value="">Tümü</option>
+                                            <option ng-repeat="item in tarihler track by $index"
+                                                value="{{item | date:'dd.MM.yyyy'}}">{{item | date:'dd.MM.yyyy'}}
+                                            </option>
+                                        </select>
+                                    </td>
+                                    <td class="islemButton" align="center">
+                                        <select class="form-control border form-control-sm bg-white ekleInput align-top"
+                                            ng-model="yilAra">
+                                            <option value="">Tümü</option>
+                                            <option ng-repeat="item in yillar" value="{{item}}">{{item}}
+                                            </option>
+                                        </select>
+                                    </td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="text-center" ng-repeat="item in ekranData track by $index">
+                                    <td class="text-center"><span class="align-middle">{{item.siraNo}}</span></td>
+                                    <td class="text-left" style="width: 13%;"><span
+                                            class="align-middle">{{item.seriNo}}</span>
+                                    </td>
+                                    <td><span class="align-middle">{{item.cihazTipi}}</span></td>
+                                    <td style="width: 110px;"><span class="align-middle">{{item.readerSeriNo}}</span>
+                                    </td>
+                                    <td style="width: 135px;"><span class="align-middle">{{item.ipNo}}</span></td>
+                                    <td class="text-center"><span class="align-middle">{{item.framRapor}}</span></td>
+                                    <td style="width: 200px;"><span class="align-middle">{{item.arizaDurum}}</span></td>
+                                    <td class="text-center" style="font-weight: bold;"><span class="align-middle"
+                                            ng-class="{'text-danger':item.onayDurum=='HAYIR','text-success':item.onayDurum=='EVET'}">{{item.onayDurum}}</span>
+                                    </td>
+                                    <td><span class="align-middle">{{item.birim}}</span></td>
+                                    <td><span class="align-middle">{{item.tarih | date:'dd/MM/yyyy'}}</span></td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <!-- <button type="button" ng-click="duzenle(item.Id)"
+                                                class="btn btn-warning btn-sm duzenleSil" title="Düzenle"><i
+                                                    class="fa fa-pencil"></i></button>
+                                            <button type="button" ng-click="sil(item.Id)"
+                                                class="btn btn-danger btn-sm duzenleSil"><i
+                                                    class="fa fa-trash"></i></button> -->
+                                            <div class="anaListeDuzenle" ng-click="duzenle(item.Id)">
+                                                <a href="#">DÜZENLE</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row p-2" ng-show="show">
+                    <div class="col-md-5">
+                        <h3 class="h5">Düzenle</h3>
+                        <input type="text" ng-model="model.seriNo" ng-change="kontrol()" placeholder="Seri No"
+                            class="form-control ekleInput border p-1 duzenleText" /><br>
+                        <input type="text" ng-model="model.cihazTipi" placeholder="Cihaz Tipi"
+                            class="form-control ekleInput border p-1 duzenleText" /><br>
+                        <input type="text" ng-model="model.readerSeriNo" placeholder="Reader No"
+                            class="form-control ekleInput border p-1 duzenleText" /><br>
+                        <input type="text" ng-model="model.ipNo" placeholder="Ip No"
+                            class="form-control p-1 ekleInput border duzenleText" /><br>
+                        <input type="text" ng-model="model.arizaDurum" placeholder="Arıza Durumu"
+                            class="form-control ekleInput border p-1 duzenleText" /><br>
+
+                        <label class="control-label"><b>BİRİMİ</b></label>
+                        <select class="form-control border form-control-sm bg-white ekleInput p-1"
+                            ng-change="birimeGoreAra()" ng-model="model.birim">
+                            <option value="">Tümü</option>
+                            <option value="Avrupa">Avrupa</option>
+                            <option value="Anadolu">Anadolu</option>
+                        </select><br>
+
+                        <label class="control-label"><b>ONAY DURUMU</b></label>
+                        <select class="form-control ekleInput border p-1" ng-model="model.onayDurum">
+                            <option value="EVET">EVET</option>
+                            <option value="HAYIR">HAYIR</option>
+                        </select><br>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <md-datepicker ng-model="model.tarih" md-placeholder="Enter date" class="border p-2"
+                                    md-open-on-focus=""></md-datepicker>
+                            </div>
+                            <div class="col-md-12" style="margin-top: 15px;">
+                                <button type="button" style="margin-right: 6px;"
+                                    class="btn btn-danger btn-sm float-left ekleInput duzenleButonlar"
+                                    ng-click="sil(model.Id)">SİL</button>
+                                <button type="button" style="margin-right: 6px;"
+                                    class="btn btn-primary btn-sm float-left ekleInput duzenleButonlar"
+                                    ng-click="show=!show">Vazgeç</button>
+                                <button type="button"
+                                    class="btn btn-success btn-sm float-left ekleInput duzenleButonlar"
+                                    ng-click="duzenleBas(model.siraNo)">Kaydet</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 float-right">
+                        <h4 class="h5">Açıklama</h4>
+                        <textarea cols="116" style="resize: none;height: 480px;"></textarea>
+                    </div>
+                </div>
+            </md-tab>
+            <md-tab label="Kayıt Ekle">
+                <div class="row p-2">
+                    <div class="col-md-12">
+                        <div class="form-inline">
+                            <div class="form-group mb-2">
+                                <input type="text" style="width: 160px!important;" ng-model="seriNo"
+                                    ng-change="kontrol()" placeholder="Seri No"
+                                    class="form-control border p-1 ekleInput ekleForm" />
+                            </div>
+                            <div class="form-group mb-2 ml-4">
+                                <input type="text" style="width: 110px!important;" ng-model="cihazTipi"
+                                    placeholder="Cihaz Tipi" class="form-control border p-1 ekleInput ekleForm" />
+                            </div>
+                            <div class="form-group mb-2 ml-4">
+                                <input type="text" style="width: 130px!important;" ng-model="readerSeriNo"
+                                    placeholder="Reader No" class="form-control border p-1 ekleInput ekleForm" />
+                            </div>
+                            <div class="form-group mb-2 ml-4">
+                                <input type="text" style="width: 160px!important;" ng-model="ipNo" placeholder="Ip No"
+                                    class="form-control border p-1 ekleInput ekleForm" />
+                            </div>
+                            <div class="form-group mb-2 ml-4">
+                                <input type="text" style="width: 255px!important;" ng-model="arizaDurum"
+                                    placeholder="Arıza Durumu" class="form-control border p-1 ekleInput ekleForm" />
+                            </div>
+                            <div class="form-group mb-2 ml-4">
+                                <select style="width: 120px!important;"
+                                    class="form-control border form-control-sm bg-white ekleInput p-2 ekleForm"
+                                    ng-model="birim">
+                                    <option value="Avrupa">Avrupa</option>
+                                    <option value="Anadolu">Anadolu</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group mb-2 ml-4">
+                                <md-datepicker ng-model="tarih" style="height: 34px!important;"
+                                    md-placeholder="Tarih Giriniz" class="border ekleForm">
+                                </md-datepicker>
+                            </div>
+
+                            <div class="form-group mb-2 ml-4">
+                                <button type="button" class="btn btn-success btn-sm w-100 float-right ekleInput"
+                                    ng-click="ekle()"><i class="fa fa-plus"></i> Ekle</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row p-2" style="margin-top: -3px;">
+                    <div class="col-md-12">
+                        <table class="table table-bordered table-striped table-hover table-sm">
+                            <thead>
+                                <tr>
+                                    <td colspan="12">SON EKLENENLER</td>
+                                </tr>
+                                <tr class="text-uppercase text-center">
+                                    <td class="text-center">#</td>
+                                    <td>
+                                        CİHAZ S/N<br>
+                                    </td>
+                                    <td>
+                                        CİHAZ TİPİ<br>
+                                    </td>
+                                    <td>
+                                        READER S/N<br>
+                                    </td>
+                                    <td>
+                                        IP NO<br>
+                                    </td>
+                                    <td>
+                                        FRAM<br>
+                                    </td>
+                                    <td>
+                                        ARIZA<br>
+                                    </td>
+                                    <td>
+                                        ONAY<br>
+                                    </td>
+                                    <td>
+                                        BİRİM<br>
+                                    </td>
+                                    <td>
+                                        TARİH<br>
+                                    </td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="text-center" ng-repeat="item in getirSondan() track by $index">
+                                    <td class="text-center"><span class="align-middle">{{item.siraNo}}</span></td>
+                                    <td class="text-left"><span class="align-middle">{{item.seriNo}}</span></td>
+                                    <td><span class="align-middle">{{item.cihazTipi}}</span></td>
+                                    <td><span class="align-middle">{{item.readerSeriNo}}</span></td>
+                                    <td><span class="align-middle">{{item.ipNo}}</span></td>
+                                    <td><span class="align-middle">{{item.framRapor}}</span></td>
+                                    <td style="width: 250px;"><span class="align-middle">{{item.arizaDurum}}</span></td>
+                                    <td><span class="align-middle" style="font-weight: bold;"
+                                            ng-class="{'text-danger':item.onayDurum=='HAYIR','text-success':item.onayDurum=='EVET'}">{{item.onayDurum}}</span>
+                                    </td>
+                                    <td><span class="align-middle">{{item.birim}}</span></td>
+                                    <td><span class="align-middle">{{item.tarih | date:'dd/MM/yyyy'}}</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </md-tab>
+        </md-tabs>
+    </div>
+    <script src="./assets/angular.min.js"></script>
+    <script src="./assets/angular-animate.min.js"></script>
+    <script src="./assets/angular-aria.min.js"></script>
+    <script src="./assets/angular-messages.min.js"></script>
+    <script src="./assets/angular-material.min.js"></script>
+    <script src="./assets/sweetalert2@9.js"></script>
+    <script src="./assets/fontAwesome.js"></script>
+    <script src="./assets/loading/loading.js"></script>
+
+    <script src="view.js"></script>
+</body>
+
+</html>

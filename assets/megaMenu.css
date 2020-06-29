@@ -1,0 +1,35 @@
+.mega-menu {
+	padding: 10px 0px ! important;
+	width: 540px;
+	border-radius: 0;
+	margin-top: 0px;
+}
+
+.mega-menu li {
+	display: block;
+	float: left;
+	font-size: 0.94rem;
+	padding: 3px 0px;
+}
+
+.mega-menu li.mega-menu-column {
+	margin-right: 20px;
+	max-width: 150px;
+	color:white;
+}
+
+.mega-menu-column a{
+	color:white;
+}
+.mega-menu-column li{
+	display: block;
+}
+
+.mega-menu .nav-header {
+	padding: 0 !important;
+	margin-bottom: 10px;
+	display: inline-block;
+	width: 100%;
+	border-bottom: 1px solid #ddd;
+}
+.mega-menu img { padding-bottom: 10px;}

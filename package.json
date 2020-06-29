@@ -1,0 +1,23 @@
+{
+  "name": "raportakip",
+  "productName": "Rapor Takip",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Emre Kirman",
+  "license": "ISC",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "knex": "^0.20.9",
+    "sqlite": "^3.0.3",
+    "xlsx": "^0.15.5"
+  },
+  "devDependencies": {
+    "electron": "^7.1.12",
+    "electron-packager": "^14.2.1",
+    "electron-rebuild": "^1.10.0"
+  }
+}
